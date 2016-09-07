@@ -4,18 +4,30 @@
 	<title>Sw Dev. Benji</title>
 	<style type="text/css">
 		body{
+			
+			background-color: #E6E6E6;
+		}
+		div{
 			text-align: center;
-			background-color: #F5ECCE;
 		}
 		iframe{
 			border-style: solid;
 			border-color: #000;
+		}
+		#canvasBg{ 
+			width: 98%;
+			height:98%;
+			border: 1px;
+			position:fixed;
 		}
 	</style>
 </head>
 
 <body>
 
+<canvas id="canvasBg"></canvas>
+
+<div id="uno">
 <h1>Software Dev.</h1>	
 
 <canvas id="canvas" width="200" height="200">canvas html5 not suported
@@ -25,7 +37,7 @@
 </br>
 
 <iframe src="https://1raziel1.github.io/web/frame.html"></iframe>
-
+</div>
 
 <script>
 	var canvas = document.getElementById("canvas");
@@ -109,6 +121,41 @@
 
 
 </script>
+
+<script type="text/javascript">
+var canvas = document.getElementById('canvasBg');
+var master=-canvas.height;
+var counter=canvas.height;
+setInterval(draw, 100);
+
+function draw(){
+
+var ctxSquare = canvas.getContext('2d');
+var height = canvas.height;
+var width=canvas.width;
+ctxSquare.clearRect(0, 0, canvas.width, canvas.height);
+if(master<10){
+	master++;
+}else{
+	master=-height;
+}
+ctxSquare.fillStyle='#FFF';
+ctxSquare.fillRect(width/2, 100,2,2);
+
+for(var i=0;i<width/2;i++){
+	//ctxSquare.fillRect(10+i*20, height/2,2,2);
+	//ctxSquare.fillRect(i*20, master,2,2);
+	for(var x=0;x<height*2;x++){
+		ctxSquare.fillRect(i*20, master+x*20,2,2);
+	}
+
+}
+// witdh height
+
+}
+</script>
+
+
 <!--
 mi ip es: <strong id="my-ip"></strong>
 
