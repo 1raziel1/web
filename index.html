@@ -125,10 +125,12 @@
 
 <script type="text/javascript">
 var canvas = document.getElementById('canvasBg');
+var mousePosY=0;
+var mousePosX = 0;
 var master=-canvas.height;
 var counter=canvas.height;
 setInterval(draw, 50);
-
+//mouse();
 function draw(){
 
 var ctxSquare = canvas.getContext('2d');
@@ -141,7 +143,6 @@ if(master<10){
 	master=-height;
 }
 ctxSquare.fillStyle='#FFF';
-ctxSquare.fillRect(width/2, 100,2,2);
 
 for(var i=0;i<width/2;i++){
 	//ctxSquare.fillRect(10+i*20, height/2,2,2);
@@ -152,8 +153,16 @@ for(var i=0;i<width/2;i++){
 
 }
 // witdh height
-
+	
 }
+function mouse(){
+	canvas.addEventListener('mousemove', function(evt) {
+		
+         mousePosX = event.clientX;
+      	 mousePosY = event.clientY;
+      }, false);
+}
+
 </script>
 
 
