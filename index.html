@@ -31,14 +31,14 @@
 <div id="uno">
 <h1>Software Dev.</h1>	
 
-<canvas id="canvas" width="200" height="200">canvas html5 not suported
-</canvas>
+<canvas id="canvas" width="200" height="200">canvas html5 not suported</canvas>
 </br>
 </br>
 </br>
 
 <iframe src="https://1raziel1.github.io/web/frame.html"></iframe>
 </div>
+<canvas id="juego" style="border:1px solid #000000;"></canvas>
 
 <script>
 	var canvas = document.getElementById("canvas");
@@ -133,35 +133,47 @@ setInterval(draw, 50);
 //mouse();
 function draw(){
 
-var ctxSquare = canvas.getContext('2d');
-var height = canvas.height;
-var width=canvas.width;
-ctxSquare.clearRect(0, 0, canvas.width, canvas.height);
-if(master<10){
-	master+=0.5;
-}else{
-	master=-height;
-}
-ctxSquare.fillStyle='#FFF';
-
-for(var i=0;i<width/2;i++){
-	//ctxSquare.fillRect(10+i*20, height/2,2,2);
-	//ctxSquare.fillRect(i*20, master,2,2);
-	for(var x=0;x<height*2;x++){
-		ctxSquare.fillRect(i*20, master+x*20,2,2);
+	var ctxSquare = canvas.getContext('2d');
+	var height = canvas.height;
+	var width=canvas.width;
+	ctxSquare.clearRect(0, 0, canvas.width, canvas.height);
+	if(master<10){
+		master+=0.5;
+	}else{
+		master=-height;
 	}
+	ctxSquare.fillStyle='#FFF';
 
-}
-// witdh height
+	for(var i=0;i<width/2;i++){
+		//ctxSquare.fillRect(10+i*20, height/2,2,2);
+		//ctxSquare.fillRect(i*20, master,2,2);
+		for(var x=0;x<height*2;x++){
+			ctxSquare.fillRect(i*20, master+x*20,2,2);
+		}
+
+	}
+	// witdh height
 	
 }
-function mouse(){
-	canvas.addEventListener('mousemove', function(evt) {
-		
-         mousePosX = event.clientX;
-      	 mousePosY = event.clientY;
-      }, false);
-}
+
+
+var juego = document.getElementById('juego');
+var master=-juego.height;
+var counter=juego.height;
+//setInterval(draw, 50);
+//mouse();
+
+
+	var ctxSquare = juego.getContext('2d');
+	var height = juego.height;
+	var width=juego.width;
+	//ctxSquare.clearRect(0, 0, juego.width, juego.height);
+	
+	ctxSquare.fillStyle='#FFF';
+
+	ctxSquare.fillRect(0, height-10,width,10);
+ 
+
 
 </script>
 
